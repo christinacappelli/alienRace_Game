@@ -18,8 +18,8 @@ var speed;
 
 // sound 
 let song;
-// let slider;
-// let button; 
+let slider;
+let button; 
 
 function preload() {
   song = loadSound("punky.mp3");
@@ -30,9 +30,9 @@ function setup() {
   smooth(); // antialias drawing lines
 
 //song
-  // button = createButton("play"); // make a button
-  // button.mousePressed(togglePlaying); 
-  // slider = createSlider (0,1,0.5,0.01); //range 0,1; start at 0.5 and increment at 0.01
+  button = createButton("play"); // make a button
+  button.mousePressed(togglePlaying); 
+  slider = createSlider (0,1,0.5,0.01); //range 0,1; start at 0.5 and increment at 0.01
   song.play(); 
 
 
@@ -64,15 +64,15 @@ function setup() {
   rightScore = new Score(windowWidth * 0.66 + 40);
 }
 
-// function togglePlaying() {
-//   if (!song.isPlaying()) { //only if song is not playing... do these actions
-//     song.play(); // play the song
-//     button.html ("pause"); // when playing want button to say pause and keeps at 
-//   } else{
-//     song.pause(); 
-//     button.html ("play") // when not playing want button to say play
-//   }
-// }
+function togglePlaying() {
+  if (!song.isPlaying()) { //only if song is not playing... do these actions
+    song.play(); // play the song
+    button.html ("pause"); // when playing want button to say pause and keeps at 
+  } else{
+    song.pause(); 
+    button.html ("play") // when not playing want button to say play
+  }
+}
 
 function draw() {
   background(0);
